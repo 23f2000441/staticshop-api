@@ -29,9 +29,10 @@
     { "id": "prod-7e57143d-023", "name": "Pro Item 23", "category": "home", "price": 18.62, "stock": 0, "rating": 4 }
   ],
   "aggregations": {
-    "home": {
-      "count": 5,
-      "inventoryValue": 122437.56
-    }
+    "sports": { "count": 7, "inventoryValue": 123029.08 },
+    "electronics": { "count": 4, "inventoryValue": 53857.33 },
+    "home": { "count": 5, "inventoryValue": 122437.56 },
+    "books": { "count": 4, "inventoryValue": 76510.34 },
+    "clothing": { "count": 3, "inventoryValue": 133289.98 }
   }
 }
