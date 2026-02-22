@@ -7,13 +7,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Prime dependency cache
-        id: cache-step
+      - name: prime-cache-9af5e88
+        id: prime_cache
         uses: actions/cache@v4
         with:
           path: |
@@ -21,10 +20,5 @@ jobs:
             node_modules
           key: cache-9af5e88
 
-      - name: prime-cache-9af5e88
-        run: |
-          if [ "${{ steps.cache-step.outputs.cache-hit }}" = "true" ]; then
-            echo "Cache HIT for key cache-9af5e88"
-          else
-            echo "Cache MISS for key cache-9af5e88"
-          fi
+      - name: Show cache result
+        run: echo "cache-hit=${{ steps.prime_cache.outputs.cache-hit }}"
