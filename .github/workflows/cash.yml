@@ -1,0 +1,30 @@
+name: CI with Cache
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Prime dependency cache
+        id: cache-step
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/pip
+            node_modules
+          key: cache-9af5e88
+
+      - name: prime-cache-9af5e88
+        run: |
+          if [ "${{ steps.cache-step.outputs.cache-hit }}" = "true" ]; then
+            echo "Cache HIT for key cache-9af5e88"
+          else
+            echo "Cache MISS for key cache-9af5e88"
+          fi
